@@ -1068,7 +1068,7 @@ section { padding: 100px 0; }
 }
 @media (max-width: 767px) {
   #navmenu { display: none; }
-  #navmenu.open { display: block; }
+  body.mobile-nav-active #navmenu { display: flex; }
   #navmenu ul { flex-direction: column; padding: 1rem; background: var(--bg-card); gap: 1rem; }
   .mobile-nav-toggle { display: block; }
   .services-grid { grid-template-columns: 1fr; }
