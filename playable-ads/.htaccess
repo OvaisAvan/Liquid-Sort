@@ -1,0 +1,10 @@
+# Fix HTTP/2 Protocol Error for playable ads
+<IfModule mod_http2.c>
+    H2Direct off
+    H2Push off
+</IfModule>
+
+# Set proper headers for HTML files
+<FilesMatch "\.html?$">
+    Header set Content-Type "text/html; charset=utf-8"
+</FilesMatch>
