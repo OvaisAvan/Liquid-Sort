@@ -616,11 +616,10 @@
               </div>
             </div>
             <p class="playable-ad-desc">Engaging puzzle gameplay with intuitive drag-and-drop mechanics. Optimized for high CTR and user engagement across all platforms.</p>
-            <a href="playable-ads/color-block.html"
-               target="_blank"
-               class="playable-ad-link">
+            <button onclick="openPlayableAdsModal('playable-ads/color-block.html', 'Color Block - Playable Ad')"
+                    class="playable-ad-link">
               <i class="bi bi-play-fill"></i> Play Full Ad
-            </a>
+            </button>
           </div>
         </div>
 
@@ -654,11 +653,10 @@
               </div>
             </div>
             <p class="playable-ad-desc">Action-packed gameplay with fast-paced mechanics designed to maximize install conversions. Showcases core gameplay within 30 seconds.</p>
-            <a href="playable-ads/zombie-fire.html"
-               target="_blank"
-               class="playable-ad-link">
+            <button onclick="openPlayableAdsModal('playable-ads/zombie-fire.html', 'Zombie Fire - Playable Ad')"
+                    class="playable-ad-link">
               <i class="bi bi-play-fill"></i> Play Full Ad
-            </a>
+            </button>
           </div>
         </div>
 
@@ -1142,6 +1140,62 @@ if (contactForm) {
     "availableLanguage": "English"
   }
 }
+</script>
+
+<!-- Playable Ads Modal -->
+<div id="playable-ads-modal" class="playable-ads-modal">
+  <div class="playable-ads-modal-content">
+    <div class="playable-ads-modal-header">
+      <h3 id="modal-title" class="playable-ads-modal-title">Playable Ad</h3>
+      <button class="playable-ads-modal-close" onclick="closePlayableAdsModal()" aria-label="Close modal">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="playable-ads-modal-body">
+      <iframe id="modal-iframe" src=""
+              title="Playable Ad"
+              width="100%"
+              height="100%"
+              style="border: none; border-radius: 8px; background: #0a0e27;">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+function openPlayableAdsModal(adUrl, adTitle) {
+  const modal = document.getElementById('playable-ads-modal');
+  const iframe = document.getElementById('modal-iframe');
+  const title = document.getElementById('modal-title');
+
+  title.textContent = adTitle;
+  iframe.src = adUrl;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePlayableAdsModal() {
+  const modal = document.getElementById('playable-ads-modal');
+  const iframe = document.getElementById('modal-iframe');
+
+  modal.classList.remove('active');
+  iframe.src = '';
+  document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside the content
+document.getElementById('playable-ads-modal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closePlayableAdsModal();
+  }
+});
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closePlayableAdsModal();
+  }
+});
 </script>
 
 </body>
