@@ -98,6 +98,10 @@ img { max-width: 100%; display: block; }
   text-shadow: 0 0 20px rgba(0,245,255,0.5);
 }
 
+#navmenu {
+  display: flex;
+}
+
 #navmenu ul {
   list-style: none;
   display: flex; align-items: center; gap: 2rem;
