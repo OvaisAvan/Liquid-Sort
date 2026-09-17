@@ -1,4 +1,15 @@
-# Playable Ads Configuration
+# Playable Ads Configuration - Fix HTTP/2 Protocol Error
+
+# FORCE HTTP/1.1 - Disable HTTP/2 for this folder
+<IfModule mod_http2.c>
+    H2Engine Off
+</IfModule>
+
+# Alternative: Disable SSL/TLS protocols that might have HTTP/2 issues
+<IfModule mod_ssl.c>
+    SSLEngine On
+    SSLProtocol -all +TLSv1.2 +TLSv1.3
+</IfModule>
 
 # Enable gzip compression for faster loading
 <IfModule mod_deflate.c>
