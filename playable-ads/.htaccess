@@ -1,9 +1,18 @@
-# Fix protocol issues for playable ads
-# Set proper MIME types for HTML files
-AddType text/html .html
+# Playable Ads Configuration
 
-# Add UTF-8 charset
+# Enable gzip compression for faster loading
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript
+</IfModule>
+
+# Set proper MIME types
+AddType text/html .html
 AddDefaultCharset UTF-8
+
+# Cache control - allow browser caching for 1 hour
+<FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=3600"
+</FilesMatch>
 
 # Disable directory listing
 <FilesMatch "^\.">
